@@ -7,10 +7,14 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params_user)
     if @user.save
-      redirect_to 
+      redirect_to user_path(@user.id)
     else
       render :new
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
 
