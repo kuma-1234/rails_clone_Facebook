@@ -1,0 +1,10 @@
+<h4>ブログ詳細画面</h4>
+<p>タイトル : <%= @blog.title %></p>
+<p>内容 : <%= @blog.content %>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @blog.image.url, width: '40%', heigt: '40%' if @blog.image? %>
+</p>
+
+<%= link_to 'Edit', edit_blog_path(@blog) %> |
+<%= link_to 'Back', blogs_path %>
