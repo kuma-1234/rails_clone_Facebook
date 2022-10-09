@@ -1,4 +1,4 @@
-<%= form_with(model: @blog, local: true) do |form| %>
+<%= form_with(model: @blog, local: true, url:new_or_edit) do |form| %>
 
   <% if @blog.errors.any? %>
     <div id="error_explanation">
@@ -24,7 +24,9 @@
 
   <div class="blog_image">
     <%= form.label :image %>
+    <%= image_tag(@blog.image.url,width: '40%', heigt: '40%') if @blog.image && @blog.image.url %>
     <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
   </div>
 
   <%= form.submit '投稿確認画面へ'%>
