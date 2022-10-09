@@ -1,0 +1,18 @@
+<h5>確認画面</h5>
+
+<%= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
+  <%= form.hidden_field :title %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
+
+  <p>タイトル：<%= @blog.title %></p>
+  <p>内容：<%= @blog.content %></p>
+
+  <p>写真</p>
+  <%= image_tag(@blog.image.url,width: '40%', heigt: '40%') if @blog.image && @blog.image.url %>
+  <br>
+  <%= form.submit "投稿する" %>
+  <%= form.submit "戻る", name: "back" %>
+<% end %>
+
+
