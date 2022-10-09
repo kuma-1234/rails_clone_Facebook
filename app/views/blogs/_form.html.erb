@@ -1,5 +1,17 @@
 <%= form_with(model: @blog, local: true) do |form| %>
-  
+
+  <% if @blog.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= @blog.errors.count %>件のエラーがあります。</h3>
+      <ul>
+      <% @blog.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
   <div class="blog_title">
     <%= form.label :title %>
     <%= form.text_field :title %>
@@ -16,5 +28,9 @@
   </div>
 
   <%= form.submit '投稿確認画面へ'%>
+
+  <br>
+
+  <%= link_to "投稿の一覧画面へ", blogs_path %>
 
 <% end %>
