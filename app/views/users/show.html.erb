@@ -1,3 +1,5 @@
-<h1>「<%= @user.name %>」さんのページ</h1>
+<h1>【<%= @user.name %>】のページ</h1>
 
 <p>メールアドレス：<%= @user.email %></p>
+
+<%= link_to '新規投稿作成画面へ', new_blog_path %>
