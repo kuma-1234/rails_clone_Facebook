@@ -36,3 +36,5 @@ gem 'bcrypt'
 
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.4.1'
