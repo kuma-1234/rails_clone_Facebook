@@ -14,15 +14,36 @@
     <% flash.each do |key, value|%>
       <%= content_tag(:div, value, class: "#{key}")%>
     <% end %>
-
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
+    
+    <div class="top_chose">
+      <% if logged_in? %>
+        <button type="button" class="btn btn-dark">
+          <%= link_to "Profile", user_path(current_user.id), class:"btn_link" %>
+        </button>
+        <button type="button" class="btn btn-dark">
+          <%= link_to "Logout", session_path(current_user.id), class:"btn_link",  method: :delete %>
+        </button>
+      <% else %>
+        <button type="button" class="btn btn-dark">
+          <%= link_to "Sign up", new_user_path, class:"btn_link" %>
+        </button>
+        <button type="button" class="btn btn-dark">
+          <%= link_to "Login", new_session_path, class:"btn_link" %>
+        </button>
+      <% end %>
+    </div>
 
     <%= yield %>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Let's keep a diary of wonderful day!</p>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

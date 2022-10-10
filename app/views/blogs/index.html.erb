@@ -1,31 +1,35 @@
-<h1>投稿の一覧</h1>
+<h1>投稿の一覧<a><%= image_tag 'book.png', width:'5%', heigt:'5%' %></a></h1>
+
+<button type="button" class="btn btn-info">
+  <%= link_to '新規作成', new_blog_path, class:"link_button" %>
+</button>
 
 <div class="table_content">
-<table>
-  <tr>
-    <th>投稿者</th>
-    <th>title</th>
-    <th>content</th>
-    <th>photo</th>
-    <th>詳細</th>
-    <th>編集</th>
-    <th>削除</th>
-  </tr>
+  <table>
+    <tr>
+      <th>投稿者</th>
+      <th>タイトル</th>
+      <th>photo</th>
+      <th>詳細</th>
+      <th>編集</th>
+      <th>削除</th>
+    </tr>
 
-<% @blogs.each do |blog| %>
-  <tr>
-    <td><%= blog.user.name %></td>
-    <td><%= blog.title %></td>
-    <td><%= blog.content %></td>
-    <td><%= blog.image[:id] %>
-    <td><%= link_to "詳細", blog_path(blog.id) %>
-    <td><%= link_to "編集", edit_blog_path(blog.id) %></td>
-    <td><%= link_to '削除', blog_path(blog.id), method: :delete, data:{confirm:'本当に削除しても良いですか？'} %></td>
-  </tr>
-<% end %>
-</table>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.user.name %></td>
+        <td><%= blog.title %></td>
+        <td><%= image_tag blog.image.to_s,size: '300x200'%></td>
+        <td><%= link_to "詳細", blog_path(blog.id) %>
+        <td><%= link_to "編集", edit_blog_path(blog.id) %></td>
+        <td><%= link_to '削除', blog_path(blog.id), method: :delete, data:{confirm:'本当に削除しても良いですか？'} %></td>
+      </tr>
+    <% end %>
+  </table>
 </div>
 
 <br>
+<button type="button" class="btn btn-info">
+  <%= link_to '新規作成', new_blog_path, class:"link_button" %>
+</button>
 
-<%= link_to '新規作成', new_post_path %>
