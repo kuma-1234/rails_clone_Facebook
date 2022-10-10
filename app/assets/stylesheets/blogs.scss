@@ -1,3 +1,44 @@
 // Place all the styles related to the blogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+//index.html.erb
+.table_content {
+  height:100%;
+  width:100%;
+  display: grid;
+  align-content: center;
+  justify-items: center; 
+}
+
+.table_content th{
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-left: 10px;
+
+}
+
+.table_content th{
+  background-color: rgb(192, 236, 221);
+}
+
+//_form.html.erb
+.blog_title{
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.blog_content{
+  padding-bottom: 20px;
+}
+
+
+//共通
+.link_button{
+  color: white;
+}
+
+h1, h2, h4, h5 {
+  padding-top: 20px;
+  font-family: 'Courier New', Courier, monospace;
+}
